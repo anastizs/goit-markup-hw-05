@@ -11,7 +11,8 @@
     --card-set-gap: 30px;
     --card-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
         0px 4px 4px rgba(0, 0, 0, 0.06),
-        1px 4px 6px rgba(0, 0, 0, 0.16)
+        1px 4px 6px rgba(0, 0, 0, 0.16);
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -63,11 +64,15 @@ img{
     display: flex;
     align-items: center;
     color: #757575;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }  
 .page-header .link:hover,
 .page-header .link:focus{
     color: var(--accent-color);
-    fill: var(--accent-color);
+    
 }
 
 .nav{
@@ -93,9 +98,6 @@ span{
         
     /* outline: 1px solid red; */
 }
-.links{
-    padding: 32px 0;
-}
 
 .site-nav .link{
     font-family: 'Roboto'sans-serif;
@@ -104,13 +106,39 @@ span{
     font-size: 14px;
     line-height: 1.2;
     letter-spacing: 0.02em;
+    padding: 32px 0;
 
     color: var(--primery-text-color);
     text-decoration: none;
+
+    /* outline: 1px solid red; */
 }
 .site-nav .link.current{
+    
     color: var(--accent-color);
 }
+
+
+.menu-line {
+    position: relative;
+    display: block;
+    text-decoration: none;
+}
+
+.menu-line::after {
+    content: "";
+
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+
 
 .contact-nav{
     display: inline-flex;
@@ -125,6 +153,7 @@ span{
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: var(--title-text-color);
+    padding: 32px 0;
     text-decoration: none;
   
 }
@@ -240,6 +269,44 @@ ul{
     
     color: var(--title-text-color);
 }
+
+
+
+/* MODAL */
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 528px;
+    min-height: 581px;
+
+    background-color: #ffffff;
+}
+.close-btn{
+    display: flex;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 30px;
+    height: 30px;
+    justify-content:flex-end;
+    align-items: flex-start;
+        
+}
 /* Чим ми займаємося */
 .work{
     padding-top: 0;
@@ -335,6 +402,9 @@ ul{
     align-items: center;
     color: #AFB1B8;
     cursor: pointer;
+    transition-property: color, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 .social-icon{
@@ -375,6 +445,9 @@ ul{
     cursor: pointer;
     border: 1px solid #AFB1B8;
     border-radius: 4px;
+    transition-property: color, border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -483,6 +556,9 @@ ul{
     align-items: center;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.1);
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -509,6 +585,7 @@ ul{
     justify-content: center;
     gap: 8px;
     margin-bottom: 50px;
+    
 }
 
 .filter-button {
@@ -517,11 +594,13 @@ ul{
     line-height: 1.62;
     text-align: center;
     padding: 6px 22px;
-    cursor: pointer;
     border: 0;
+    cursor: pointer;
     background-color: var(--bgr-second-color);
     color: var(--primery-text-color);
     border-radius: 4px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 
 .filter-button:hover,
@@ -536,10 +615,63 @@ ul{
 .card{
     background: var(--hero-title);
     cursor: pointer;
-  
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      
+}
+.card-thumb{
+    position: relative;
+    
+}
+.card-thumb::before{
+    display: inline-block;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(33, 150, 243, 0.9);
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+.card-thumb:hover::before{
+    transform: translateY();
 }
 
+.card-thumb:hover::before,
+.card-thumb:focus::before{
+    opacity: 1;
+}
+
+.card-thumb-text{
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    top: 0;
+    left: 0;
+    padding: 63px 24px;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+.card-thumb-text:hover,
+.card-thumb-text:focus{
+    opacity: 1;
+}
 .card-set{
+    
     padding: 0;
     margin: 0;
     list-style: none;
@@ -547,7 +679,7 @@ ul{
     flex-wrap: wrap;
     margin-top: -30px;
     margin-left: -30px;
-    
+        
 }
 
 .card-set > .item{
@@ -579,4 +711,8 @@ ul{
     border-top-width: 0;
 }
  
+
+
+
+
 

@@ -24,14 +24,14 @@
                 <a href="./index.html" class="logo"> <span>Web</span>Studio</a>
             
                 <ul class="site-nav">
-                    <li class="links">
+                    <li class="links menu-line">
                         <a href="./index.html" class="link current">Студія</a>
                     </li>
                     <li class="links">
                         <a href="./portfolio.html" class="link">Портфоліо</a>
                     </li>
                     <li class="links">
-                        <a href="" class="link">Контакти</a>
+                        <a href="/" class="link">Контакти</a>
                     </li>
                 </ul>
                 
@@ -61,6 +61,14 @@
                     <div class="hero-container">
                         <h1 class="hero-title">Ефективні рішення для <br> вашого бізнесу</h1>
                         <button type="button" class="hero-btn">Замовити послугу</button>
+                    </div>
+                   <!-- Модальне вікно -->
+                    <div class="backdrop is-hidden">
+                        <div class="modal">
+                            <a href="/index.html">
+                                <svg class="close-btn" width="18" hidden="18"> <use href="./images/symbol-defs.svg#icon-x"></use></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -421,6 +429,8 @@
               
         </div>
     </footer>
+    <script src="./js/modal.js"></script>
+
 
 </body>
 
