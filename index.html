@@ -60,14 +60,15 @@
                 <div class="container">
                     <div class="hero-container">
                         <h1 class="hero-title">Ефективні рішення для <br> вашого бізнесу</h1>
-                        <button type="button" class="hero-btn">Замовити послугу</button>
+                        <button class="hero-btn" data-modal-open>Замовити послугу</button>
                     </div>
                    <!-- Модальне вікно -->
-                    <div class="backdrop is-hidden">
+                    <div class="backdrop is-hidden" data-modal>
                         <div class="modal">
-                            <a href="/index.html">
-                                <svg class="close-btn" width="18" hidden="18"> <use href="./images/symbol-defs.svg#icon-x"></use></svg>
-                            </a>
+                            <div class="close-btn" data-modal-close>
+                                <svg class="close-svg">
+                                    <use href="./images/symbol-defs.svg#icon-x"></use>
+                                </svg></div>
                         </div>
                     </div>
                 </div>
@@ -78,22 +79,22 @@
         <section class="section">
             <div class="container">
                 <ul class="container-items">
-                    <li class="container-item">
+                    <li>
                         <div class="icon"><svg class="icon-svg"> <use href="./images/symbol-defs.svg#icon-antenna"></use></svg></div>
                         <h3 class="section-title">УВАГА ДО ДЕТАЛЕЙ</h3>
                         <p class="section-text">Ідейні міркування, і навіть початок повсякденної роботи з формування позиції.</p>
                     </li>
-                    <li class="container-item icon-clock">
+                    <li>
                         <div class="icon"><svg class="icon-svg"><use href="./images/symbol-defs.svg#icon-clock"></use></svg></div>
                         <h3 class="section-title">ПУНКТУАЛЬНІСТЬ</h3>
                         <p class="section-text">Завдання організації, особливо рамки і місце навчання кадрів тягне у себе.</p>
                     </li>
-                    <li class="container-item icon-diagram">
+                    <li>
                         <div class="icon"><svg class="icon-svg"><use href="./images/symbol-defs.svg#icon-diagram"></use></svg></div>
                         <h3 class="section-title">ПЛАНУВАННЯ</h3>
                         <p class="section-text">Так само консультація з широким активом значною мірою зумовлює.</p>
                     </li>
-                    <li class="container-item icon-astronaut">
+                    <li>
                         <div class="icon"><svg class="icon-svg"><use href="./images/symbol-defs.svg#icon-astronaut"></use></svg></div>
                         <h3 class="section-title">СУЧАСНІ ТЕХНОЛОГІЇ</h3>
                         <p class="section-text">Значимість цих проблем настільки очевидна, що реалізація планових завдань.</p>
@@ -429,7 +430,7 @@
               
         </div>
     </footer>
-    <script src="./js/modal.js"></script>
+    <script src="/modal.js"></script>
 
 
 </body>
